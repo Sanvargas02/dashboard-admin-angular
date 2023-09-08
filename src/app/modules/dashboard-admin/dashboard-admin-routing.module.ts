@@ -32,7 +32,7 @@ const routes: Routes = [
         //Vistas
         { path: '', redirectTo: 'list-prestadores-turisticos', pathMatch: 'full'},
         //Componentes listado
-        { path: 'list-prestadores-turisticos', component: ListadoPrestadorComponent },
+        { path: 'list-prestadores-turisticos', component: ListadoPrestadorComponent},
         { path: 'list-atractivo-turistico', component: ListadoAtractivoComponent},
         { path: 'list-municipio', component: ListadoMunicipioComponent },
         { path: 'list-rutas-turisticas', component: ListadoRutasComponent },
