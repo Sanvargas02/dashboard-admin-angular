@@ -1,1 +1,28 @@
-<p>pagina-inicio works!</p>
+<!-- <p>pagina-inicio works!</p> -->
+
+<!-- <app-side-bar></app-side-bar> -->
+
+<div class="flex h-screen bg-gray-200">
+  <!-- Sidebar -->
+  <aside *ngIf="ha"class="bg-indigo-600 w-45 h-52">
+    <div class="text-white text-2xl text-center font-semibold">Secciones</div>
+    <ul class="mt-6">
+        <li class="mb-3 text-center">
+            <a class="text-white hover:text-indigo-200 " routerLink="list-prestadores-turisticos">Prestadores Turísticos</a>
+        </li>
+        <li class="mb-3 text-center">
+            <a class="text-white hover:text-indigo-200 " routerLink="list-atractivo-turistico">Atractivos Turísticos</a>
+        </li>
+        <li class="mb-3 text-center">
+            <a class="text-white hover:text-indigo-200 " routerLink="list-municipio">Municipios</a>
+        </li>
+        <li class="mb-3 text-center">
+            <a class="text-white hover:text-indigo-200 " routerLink="list-rutas-turisticas">Rutas Turísticas</a>
+        </li>
+    </ul>
+  </aside>
+  <button class="absolute bottom-0" (click)="hidden()">BOTON</button>
+  <router-outlet></router-outlet>
+</div>
+
+<!-- <router-outlet></router-outlet> Se coloca donde queremos que se muestren las vistas de las rutas -->
