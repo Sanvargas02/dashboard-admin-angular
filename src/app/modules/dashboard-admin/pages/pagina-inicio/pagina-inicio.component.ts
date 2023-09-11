@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
 export class PaginaInicioComponent {
   public ha: boolean = false;
 
-hidden(){
- this.ha == false ? this.ha = true : this.ha = false;
-}
+  hidden(){
+    this.ha == false ? this.ha = true : this.ha = false;
+  }
 }
 
