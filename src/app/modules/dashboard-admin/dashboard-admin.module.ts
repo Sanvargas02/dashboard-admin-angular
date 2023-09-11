@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DashboardAdminRoutingModule } from './dashboard-admin-routing.module';
+import { ReactiveFormsModule } from '@angular/forms'; //Formularios Reactivos
 
 import { PaginaInicioComponent } from './pages/pagina-inicio/pagina-inicio.component';
 import { ListadoPrestadorComponent } from './pages/prestadores-turisticos/listado-prestador/listado-prestador.component';
@@ -36,7 +37,8 @@ import { EditarRutasComponent } from './pages/rutas-turisticas/editar-rutas/edit
   ],
   imports: [
     CommonModule,
-    DashboardAdminRoutingModule
+    DashboardAdminRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class DashboardAdminModule { }

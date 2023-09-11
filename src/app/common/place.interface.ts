@@ -19,7 +19,7 @@ export default interface Place {
 
 //Interfaz para Prestadoes Turisticos
 interface PrestadorTuristico extends Place {
-  //id
+  //id -> Se toma por código
   //name: string;
   rntRm: string;
   //descripcion: string;
@@ -28,9 +28,9 @@ interface PrestadorTuristico extends Place {
   municipio: string;
   direccion: string;
   indicacionesAcceso: string;
+  //googleMaps?: string;
   //latitud?: number;
   //longitud?: number;
-  //googleMaps?: string;
   whatsapp: number;
   celular1: number;
   celular2: number;
@@ -39,8 +39,8 @@ interface PrestadorTuristico extends Place {
   pagWeb: string;
   correo: string;
   horarioAtencion: string;
-  //pathImage?: string[];
-  //meGusta?: number;
+  //pathImage?: string[]; -> Se toma por código
+  //meGusta?: number; -> Se toma por código
 }
 
 // Interfaz Atractivo turístico
