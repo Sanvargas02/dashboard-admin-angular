@@ -18,7 +18,7 @@ export default interface Place {
 }
 
 //Interfaz para Prestadoes Turisticos
-interface PrestadorTuristico extends Place {
+export interface PrestadorTuristico extends Place {
   //id -> Se toma por código
   //name: string;
   rntRm: string;
@@ -44,7 +44,7 @@ interface PrestadorTuristico extends Place {
 }
 
 // Interfaz Atractivo turístico
-interface AtractivoTuristico extends Place {
+export interface AtractivoTuristico extends Place {
   //id
   //nombre: string;
   bienOLugar: string;
@@ -68,7 +68,7 @@ interface AtractivoTuristico extends Place {
 }
 
 // Interfaz Municipio
-interface Municipio extends Place {
+export interface Municipio extends Place {
   //id
   //nombre: string;
   subregion: string;
@@ -92,7 +92,7 @@ interface Municipio extends Place {
 }
 
 // Interfaz Ruta
-interface Ruta extends Place {
+export interface Ruta extends Place {
   //id
   //nombre: string
   informacionAdicional: string;
