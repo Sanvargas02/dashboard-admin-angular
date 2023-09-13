@@ -85,7 +85,13 @@
           </div>
         </div>
         <!-- Último Input -->
-        <input type="text" class="w-full px-3 py-2 border rounded-lg" formControlName="horarioAtencion" placeholder="Horarios de Atención">
+        <input type="text" class="w-full px-3 py-2 border rounded-lg mb-2" formControlName="horarioAtencion" placeholder="Horarios de Atención">
+        <!-- Input de Imágenes -->
+        <div class="flex mb-2">
+          <div class="flex-1">
+            <input class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" type="file" multiple accept="image/*" (change)="uploadImage($event)">
+          </div>
+        </div>
         <!-- Botónes -->
         <div class="flex justify-center mt-10">
           <div class="space-x-4">

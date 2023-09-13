@@ -14,8 +14,11 @@ export class AgregarPrestadorComponent implements OnInit {
   // ? -> La propiedad createPrestador no es un Objeto, es una Propiedad de Almacén de los datos HTML
   createPrestador: FormGroup; //Propiedad para almacenar los valores del Formulario y Gestionarlos.
 
-  // ? -> lo vamos a utilizar en el ngIf del span del aviso una vez enviado el Form
+  // ? -> Lo vamos a utilizar en el ngIf del span del aviso una vez enviado el Form
   submitted = false; //Para saber si se envió el form.
+
+  // ? -> Propiedad para almacenar los archivos antes de cargarlos a la BD
+  files: any; //Presupongo que los archivos son un arreglo de tipo any, no estoy seguro
 
   //Inyecciones de Dependencias
   constructor(
@@ -52,6 +55,7 @@ export class AgregarPrestadorComponent implements OnInit {
 
   }
 
+  //? -> Método para agregar un Prestador en Firestore
   //Aquí se gestionan los datos que se digitan desde el html - Se ejecuta lo que queremos hacer inmediatamente enviemos el Form.
   agregarPrestador() {
 
@@ -100,6 +104,14 @@ export class AgregarPrestadorComponent implements OnInit {
       this.router.navigate(['/dashboard-admin/pagina-inicio/list-prestadores-turisticos']);
     })
     .catch(error => console.log(error))
+
+  } //? -> Fin Método Agregar Prestador
+
+  //? -> Método para Capturar los Archivos antes de enviar el Form
+  uploadImage($event: any) {
+    //files es un arreglo de archivos que cargamos desde el html
+    this.files = $event.target.files; //Apuntamos al input y luego los ficheros
+    // console.log(this.files);
   }
 
-}
+} //? -> Fin clase
