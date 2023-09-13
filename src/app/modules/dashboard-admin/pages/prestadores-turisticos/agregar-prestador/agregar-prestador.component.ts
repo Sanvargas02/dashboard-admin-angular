@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PrestadorTuristico } from 'src/app/common/place.interface';
+import { PrestadoresService } from 'src/app/core/services/prestadores.service';
 
 @Component({
   selector: 'app-agregar-prestador',
@@ -15,8 +17,11 @@ export class AgregarPrestadorComponent implements OnInit {
   // ? -> lo vamos a utilizar en el ngIf del span del aviso una vez enviado el Form
   submitted = false; //Para saber si se envió el form.
 
+  //Inyecciones de Dependencias
   constructor(
     private fb: FormBuilder, // Modulo para Formulario - Permite validar el formulario de manera sencilla.
+    private prestadoresService: PrestadoresService, // Servicio con los métodos CRUD para Prestadores
+    private router: Router, // Clase Router para moverme a otro componente una vez enviado el form
   ) {
     //Aquí inicializamos propiedades.
     //Formulario - Se declaran las variables que lo conforman.
@@ -57,33 +62,44 @@ export class AgregarPrestadorComponent implements OnInit {
       return; //Sale del método y no ejecuta nada más.
     }
 
-    //Ahora vamos a crear nuestra constante de tipo Object definida en la Interfaz, en este caso PrestadorTuristico
+    //Ahora vamos a crear nuestra constante de tipo Object pre-definida en la Interfaz, en este caso PrestadorTuristico
+    //El objeto lo vamos a enviar a Firebase para almacenar
     const prestadorTuristico: PrestadorTuristico = {
       //id -> Nos lo da firebase
-      name: '',
-      rntRm: '',
-      descripcion: '',
-      servicios: '',
-      zona: '',
-      municipio: '',
-      direccion: '',
-      indicacionesAcceso: '',
-      googleMaps: '',
-      latitud: 1,
-      longitud: 1,
-      whatsapp: 1,
-      celular1: 1,
-      celular2: 1,
-      facebook: '',
-      instagram: '',
-      pagWeb: '',
-      correo: '',
-      horarioAtencion: '',
-      pathImage: [], // -> lo conseguimos en la inserción de imágenes
-      meGusta: 1 // -> # de Me gustas en la App
+      name: this.createPrestador.value.nombre,
+      rntRm: this.createPrestador.value.rntRm,
+      descripcion: this.createPrestador.value.descripcion,
+      servicios: this.createPrestador.value.servicios,
+      zona: this.createPrestador.value.zona,
+      municipio: this.createPrestador.value.municipio,
+      direccion: this.createPrestador.value.direccion,
+      indicacionesAcceso: this.createPrestador.value.indicacionesAcceso,
+      googleMaps: this.createPrestador.value.googleMaps,
+      latitud:this.createPrestador.value.latitud,
+      longitud:this.createPrestador.value.longitud,
+      whatsapp:this.createPrestador.value.whatsapp,
+      celular1:this.createPrestador.value.celular1,
+      celular2:this.createPrestador.value.celular2,
+      facebook: this.createPrestador.value.facebook,
+      instagram: this.createPrestador.value.instagram,
+      pagWeb: this.createPrestador.value.pagWeb,
+      correo: this.createPrestador.value.correo,
+      horarioAtencion: this.createPrestador.value.horarioAtencion,
+      pathImages: [], // -> lo conseguimos en la inserción de imágenes
+      meGusta: 0 // -> # de Me gustas en la App
     }
 
-    console.log(this.createPrestador);
+    console.log(prestadorTuristico);
+
+    //Servicio llamando al método para Agregar Prestador Turístico
+    this.prestadoresService.agregarPrestador(prestadorTuristico)
+    .then(() => {
+      //Mensaje
+      alert('El empleado fue registrado con éxito');
+      //Nos direcciona a otro componente
+      this.router.navigate(['/dashboard-admin/pagina-inicio/list-prestadores-turisticos']);
+    })
+    .catch(error => console.log(error))
   }
 
 }

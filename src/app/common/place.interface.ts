@@ -14,7 +14,7 @@ export default interface Place {
   longitud?: number; //Opcional - Aparece en el formulario
   googleMaps?: string; //Opcional - Aparece en el formulario
   meGusta?: number; //Opcional - Se establece un contador que sólo trae el dato en caso de que presionen un ícono, similar al de editar o borrar. Y se enlaza con el id del sitio.
-  pathImage?: string[]; //Array de Paths de Imágenes opcional ya que no se pueden exportar la información en un Json.
+  pathImages?: string[]; //Array de Paths de Imágenes opcional ya que no se pueden exportar la información en un Json.
 }
 
 //Interfaz para Prestadoes Turisticos
